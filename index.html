@@ -28,7 +28,7 @@
         <div id="all-tracker" class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-5 mb-5">
             <div id="total-card" class="bg-white py-5 px-10 ">
                 <p class="font-medium text-[#323B49] text-[14px]">Total</p>
-                <h3 id="total-number" class="font-bold text-[24px] text-[#002C5C]">8</h3>
+                <h3 id="total-number" class="font-bold text-[24px] text-[#002C5C]">0</h3>
             </div>
 
             <div id="interview-card" class="bg-white py-5 px-10 ">
@@ -52,20 +52,20 @@
             <div class="available-text">
                 <h2 class="font-semibold text-[20px] text-[#002C5C] ">Available Jobs</h2>
             </div>
-            <div class="available-number">
-                <p class="font-medium text-[16px] text-[#64748B]"><span id="available-number">8</span> jobs</p>
+            <div class="available-jobs-number">
+                <p class="font-medium text-[16px] text-[#64748B]"><span id="available-number">5</span> jobs</p>
             </div>
         </div>
         <!-- tabs  button -->
         <div id="tabs" class="space-x-3 mt-7 mb-4">
-            <button class="btn bg-blue-500  w-20 font-medium text-[12px] text-white rounded-md ">All</button>
-            <button class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Interview</button>
-            <button class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Rejected</button>
+            <button onclick="toggleStyle('all-tab')" id="all-tab" class="btn bg-blue-500  w-20 font-medium text-[12px] text-white rounded-md ">All</button>
+            <button onclick="toggleStyle('interview-tab')" id="interview-tab" class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Interview</button>
+            <button onclick="toggleStyle('rejected-tab')" id="rejected-tab" class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Rejected</button>
         </div>
 
 
         <section>
-            <div class="all-cards">
+            <div id="all-cards">
                 <!-- card 1 -->
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
@@ -88,8 +88,8 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <button id="delete-btn" class="cursor-pointer">
+                            <i class="fa-solid fa-trash-can "></i>
                         </button>
                     </div>
                 </div>
@@ -98,14 +98,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">WebFlow Agency</h3>
+                            <p class="text-[#64748B] ">Web Designer & Developer</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -116,7 +116,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -126,14 +126,15 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">DataViz Solutions</h3>
+                            <p class="text-[#64748B] ">Data Visualization Specialist</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -144,7 +145,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -154,14 +155,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">CloudFirst Inc</h3>
+                            <p class="text-[#64748B] ">Backend Developer</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -172,7 +173,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -182,14 +183,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Innovation Labs</h3>
+                            <p class="text-[#64748B] ">UI/UX Engineer</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -200,7 +201,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -210,14 +211,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">MegaCorp Solutions</h3>
+                            <p class="text-[#64748B] ">JavaScript Developer</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -228,7 +229,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -238,14 +239,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">StartupXYZ</h3>
+                            <p class="text-[#64748B] ">Full Stack Engineer</p>
                             <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -256,7 +257,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -266,14 +267,14 @@
                 <div class="card-left bg-white rounded-md p-6 flex justify-between items-start mb-5 ">
                     <div>
                         <div>
-                            <h3 class="font-semibold text-[18px] text-[#002C5C]">Mobile First Corp</h3>
-                            <p class="text-[#64748B] ">React Native Developer</p>
-                            <p class="text-[14px] text-[#64748B] py-[15px]">Remote • Full-time • $130,000 - $175,000</p>
+                            <h3 class="font-semibold text-[18px] text-[#002C5C]">TechCorp Industries</h3>
+                            <p class="text-[#64748B] ">Senior Frontend Developer</p>
+                            <p class="text-[14px] text-[#64748B] py-[15px]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
                         </div>
                         <div class=" bg-[#EEF4FF] w-[150px] text-center py-[11px] ">
                             <h4 id="status" class="font-medium text-[14px] text-[#002C5C]  ">NOT APPLIED</h4>
                         </div>
-                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                        <p class="text-[14px] text-[#323B49] pt-[13px] pb-[30px]">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
 
                         <div class="space-x-2">
                             <button class="btn btn-outline btn-success">INTERVIEW</button>
@@ -284,7 +285,7 @@
                     
                     
                     <div class="right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button id="delete-btn" class="">
+                        <button id="delete-btn" class="cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
@@ -297,5 +298,12 @@
 
     </main>
     
+
+
+
+
+
+
+    <script src="./script.js"></script>
 </body>
 </html>
