@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <!-- tailwind and daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font awesome  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font style for everyone -->
+     <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+     </style>
+</head>
+<body class="bg-[#F8FAFC] ">
+    <section id="tracker" class="container mx-auto pt-[60px]">
+        <h1 class="text-[#002C5C] font-bold text-[32px]">Job Application Tracker</h1>
+        <div id="all-tracker" class="grid grid-cols-3 gap-10 mt-5 mb-5">
+            <div id="total-card" class="bg-white py-5 px-10 ">
+                <p class="font-medium text-[#323B49] text-[14px]">Total</p>
+                <h3 id="total-number" class="font-bold text-[24px] text-[#002C5C]">8</h3>
+            </div>
+
+            <div id="interview-card" class="bg-white py-5 px-10 ">
+                <p class="font-medium text-[#323B49] text-[14px]">Interview</p>
+                <h3 id="interview-number" class="font-bold text-[24px] text-green-600">0</h3>
+            </div>
+
+            <div id="rejected-card" class="bg-white py-5 px-10 ">
+                <p class="font-medium text-[#323B49] text-[14px]">Rejected</p>
+                <h3 id="rejected-number" class="font-bold text-[24px] text-red-600">0</h3>
+            </div>
+            
+        </div>
+        <div class="divider my-[50px]"></div>
+    </section>
+
+
+
+    <main class="container mx-auto">
+        <div class="flex justify-between items-center">
+            <div class="available-text">
+                <h2 class="font-semibold text-[20px] text-[#002C5C] ">Available Jobs</h2>
+            </div>
+            <div class="available-number">
+                <p class="font-medium text-[16px] text-[#64748B]"><span id="available-number">5</span> jobs</p>
+            </div>
+        </div>
+        <!-- tabs  button -->
+        <div id="tabs" class="space-x-3 mt-7 mb-4">
+            <button class="btn bg-blue-500  w-20 font-medium text-[12px] text-white rounded-md ">All</button>
+            <button class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Interview</button>
+            <button class="btn bg-white  w-20 font-medium text-[12px] text-[#64748B] rounded-md ">Rejected</button>
+        </div>
+
+
+        <div class="all-cards">
+            <div class="card bg-white">
+
+            </div>
+        </div>
+            
+
+    </main>
+    
+</body>
+</html>
