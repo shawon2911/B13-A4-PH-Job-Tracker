@@ -66,7 +66,9 @@ function toggleStyle(id){
 
 // event handling on main container 
     mainContainer.addEventListener('click', function(event){   
-        if(event.target.classList.contains('delete-btn')){                                                          //for delete button
+        console.log("clicked", event)
+        if(event.target.classList.contains('delete-btn')){  
+            console.log('click')                                                        //for delete button
              const card = event.target.closest('.card-left');
              const companyName = card.querySelector('.company-name').innerText;
              interviewList = interviewList.filter(item => item.companyName != companyName);
