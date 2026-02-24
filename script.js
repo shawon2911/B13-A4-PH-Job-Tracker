@@ -66,11 +66,22 @@ function toggleStyle(id){
 
 // event handling on main container 
     mainContainer.addEventListener('click', function(event){   
-        if(event.target.classList.contains('delete-btn')){
+        if(event.target.classList.contains('delete-btn')){                                                          //for delete button
              const card = event.target.closest('.card-left');
              const companyName = card.querySelector('.company-name').innerText;
              interviewList = interviewList.filter(item => item.companyName != companyName);
-        }                                     
+             rejectedList = rejectedList.filter(item => item.companyName != companyName);
+             card.remove();
+             if(currentStatus == 'interview-tab'){
+                renderInterview();
+             } 
+             else if(currentStatus == 'rejected-tab'){
+             renderRejected();
+             }
+        
+        calculateNumber();
+            }
+                                            
         if(event.target.classList.contains('interview-btn')){                                                   //for interview button
             const card = event.target.closest('.card-left');
             // catch everything inside a parentNode
