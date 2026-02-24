@@ -54,6 +54,10 @@ function toggleStyle(id){
         allCards.classList.remove('hidden');
         filteredSection.classList.add('hidden');
     }
+    else if (id == "rejected-tab"){
+        allCards.classList.add('hidden');
+        filteredSection.classList.remove('hidden');
+    }
 }
 
 // event handling on main container 
@@ -82,6 +86,7 @@ function toggleStyle(id){
                 card.querySelector('.job-status').innerText = "Interview";
             
             }
+            rejectedList = rejectedList.filter(item => item.companyName != jobInfo.companyName)
             renderInterview();
             calculateNumber();
         }
@@ -109,6 +114,7 @@ function toggleStyle(id){
                 card.querySelector('.job-status').innerText = "Reject";
             
             }
+            interviewList = interviewList.filter(item => item.companyName != jobInfo.companyName)
             renderRejected();
             calculateNumber();
             }
