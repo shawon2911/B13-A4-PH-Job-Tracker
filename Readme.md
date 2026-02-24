@@ -19,3 +19,4 @@ ans : peventdefault() stops browsers default behavior
 
 
     <!-- my delete button is working but it works slowly -->
+    N.B : my delete button is working but it works slowly 
