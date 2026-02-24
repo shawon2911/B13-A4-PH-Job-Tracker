@@ -1,6 +1,6 @@
 // create interview and rejected empty array list
-const interviewList = [];
-const rejectedList = [];
+let interviewList = [];
+let rejectedList = [];
 // set the all jobs number in total card
 let totalNumber = document.getElementById('total-number');
 let interviewNumber = document.getElementById('interview-number');
@@ -14,7 +14,8 @@ const rejectedTab = document.getElementById('rejected-tab');
 // catch the main container by main tag
 const mainContainer = document.querySelector('main');
 // catch the filtered section
-const filteredSection = document.getElementById('filtered-section')
+const filteredSection = document.getElementById('filtered-section');
+let currentStatus = 'all';
 
 
 
@@ -42,12 +43,14 @@ function toggleStyle(id){
 
     // step:3 = remove default color from clicked tab
     const selected = document.getElementById(id);
+    currentStatus = id;
     selected.classList.remove('bg-white', 'text-[#64748B]');
     selected.classList.add('bg-blue-500', 'text-white');
 
     if(id == "interview-tab"){
         allCards.classList.add('hidden');
         filteredSection.classList.remove('hidden');
+        renderInterview();
 
     }
     else if (id == "all-tab"){
@@ -57,11 +60,17 @@ function toggleStyle(id){
     else if (id == "rejected-tab"){
         allCards.classList.add('hidden');
         filteredSection.classList.remove('hidden');
+        renderRejected();
     }
 }
 
 // event handling on main container 
-    mainContainer.addEventListener('click', function(event){                                        
+    mainContainer.addEventListener('click', function(event){   
+        if(event.target.classList.contains('delete-btn')){
+             const card = event.target.closest('.card-left');
+             const companyName = card.querySelector('.company-name').innerText;
+             interviewList = interviewList.filter(item => item.companyName != companyName);
+        }                                     
         if(event.target.classList.contains('interview-btn')){                                                   //for interview button
             const card = event.target.closest('.card-left');
             // catch everything inside a parentNode
@@ -87,8 +96,11 @@ function toggleStyle(id){
             
             }
             rejectedList = rejectedList.filter(item => item.companyName != jobInfo.companyName)
-            renderInterview();
+            
             calculateNumber();
+            if(currentStatus == 'rejected-tab'){
+                renderRejected();
+            }
         }
         else if(event.target.classList.contains('rejected-btn')){                                                           //for  rejected button
             const card = event.target.closest('.card-left');
@@ -114,8 +126,11 @@ function toggleStyle(id){
                 card.querySelector('.job-status').innerText = "Reject";
             
             }
-            interviewList = interviewList.filter(item => item.companyName != jobInfo.companyName)
-            renderRejected();
+            interviewList = interviewList.filter(item => item.companyName != jobInfo.companyName);
+            
+            if(currentStatus == 'interview-tab'){
+                renderInterview();
+            }
             calculateNumber();
             }
         
@@ -142,8 +157,8 @@ function toggleStyle(id){
                         <p class="job-responsible text-[14px] text-[#323B49] pt-[13px] pb-[30px]">${interview.responsibility}</p>
 
                         <div class="space-x-2">
-                            <button class="btn btn-outline btn-success">INTERVIEW</button>
-                            <button class="btn btn-outline btn-error">REJECTED</button>
+                            <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                            <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                         </div>
                     </div>
                     
@@ -178,8 +193,8 @@ function toggleStyle(id){
                         <p class="job-responsible text-[14px] text-[#323B49] pt-[13px] pb-[30px]">${reject.responsibility}</p>
 
                         <div class="space-x-2">
-                            <button class="btn btn-outline btn-success">INTERVIEW</button>
-                            <button class="btn btn-outline btn-error">REJECTED</button>
+                            <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                            <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                         </div>
                     </div>
                     
