@@ -16,6 +16,7 @@ const mainContainer = document.querySelector('main');
 // catch the filtered section
 const filteredSection = document.getElementById('filtered-section');
 let currentStatus = 'all';
+const noJob = document.getElementById('no-job');
 
 
 
@@ -51,17 +52,23 @@ function toggleStyle(id){
         allCards.classList.add('hidden');
         filteredSection.classList.remove('hidden');
         renderInterview();
-
     }
     else if (id == "all-tab"){
         allCards.classList.remove('hidden');
         filteredSection.classList.add('hidden');
+        if(allCards.children.length === 0){
+            noJob.classList.remove('hidden');
+        }
+        else{
+            noJob.classList.add('hidden');
+        }
     }
     else if (id == "rejected-tab"){
         allCards.classList.add('hidden');
         filteredSection.classList.remove('hidden');
         renderRejected();
     }
+    
 }
 
 // event handling on main container 
@@ -74,6 +81,9 @@ function toggleStyle(id){
              interviewList = interviewList.filter(item => item.companyName != companyName);
              rejectedList = rejectedList.filter(item => item.companyName != companyName);
              card.remove();
+             if(currentStatus === 'all-tab' && allCards.children.length === 0){
+                noJob.classList.remove('hidden');
+             }
              if(currentStatus == 'interview-tab'){
                 renderInterview();
              } 
@@ -153,6 +163,12 @@ function toggleStyle(id){
     // this function is created for show the interview on the screen
     function renderInterview(){
         filteredSection.innerHTML = '';
+        if(interviewList.length === 0){
+            noJob.classList.remove('hidden');
+        }
+        else{
+            noJob.classList.add('hidden');
+        }
         for(let interview of interviewList){
             console.log(interview)
             let div = document.createElement('div')
@@ -177,11 +193,9 @@ function toggleStyle(id){
                     
                     
                     
-                    <div class="btn right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button class="delete-btn cursor-pointer" >
-                            <i class="fa-solid fa-trash-can "></i>
-                        </button>
-                    </div>
+                    <button class="delete-btn  btn right-content p-2 border border-gray-400 rounded-full  mt-2" >
+                            <i class="fa-solid fa-trash-can delete-btn"></i>
+                    </button>
             `
             filteredSection.appendChild(div);
         }
@@ -189,6 +203,12 @@ function toggleStyle(id){
     // this function is created for show the rejection on the screen
     function renderRejected(){
         filteredSection.innerHTML = '';
+        if(rejectedList.length === 0){
+            noJob.classList.remove('hidden');
+        }
+        else{
+            noJob.classList.add('hidden');
+        }
         for(let reject of rejectedList){
             
             let div = document.createElement('div')
@@ -213,11 +233,9 @@ function toggleStyle(id){
                     
                     
                     
-                    <div class="btn right-content p-2 border border-gray-400 rounded-full cursor-pointer mt-2">
-                        <button class="delete-btn cursor-pointer" >
-                            <i class="fa-solid fa-trash-can "></i>
-                        </button>
-                    </div>
+                    <button class="delete-btn  btn right-content p-2 border border-gray-400 rounded-full  mt-2" >
+                            <i class="fa-solid fa-trash-can delete-btn"></i>
+                    </button>
             `
             filteredSection.appendChild(div);
         }
